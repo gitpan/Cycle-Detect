@@ -1,0 +1,24 @@
+Build.PL
+lib/Cycle/Detect.pm
+MANIFEST			This list of files
+t/BaseCycle.t
+t/Global.t
+t/Load.t
+t/Nested.t
+t/NoCycle.t
+t/res/BaseCycleA.pm
+t/res/BaseCycleB.pm
+t/res/BaseCycleC.pm
+t/res/Broken.pm
+t/res/CycleA.pm
+t/res/CycleB.pm
+t/res/CycleC.pm
+t/res/NestedA.pm
+t/res/NestedB.pm
+t/res/NestedC.pm
+t/res/NoCycleA.pm
+t/res/NoCycleB.pm
+t/res/NoCycleC.pm
+README
+META.yml
+META.json

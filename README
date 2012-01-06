@@ -1,0 +1,81 @@
+NAME
+    Cycle-Detect - (mostly) Non-global use/require cycle detection
+
+DESCRIPTION
+    When this module is loaded into a package, Cycle Detection is started.
+    Cycle detection will issue a highly readable warnings whenever a use
+    cycle is detected. Detection will only trigger warnings when the cycle
+    starts in a moduel that has used Cycle::Detect. In addition you can
+    choose to use Cycle::Detect to load a module, effectively limiting the
+    detection to the scope of that one load.
+
+    Example Warnings:
+
+        [Cycle Detection started in 'My::Package']
+        Use Cycle Detected. Require Stack:
+          * CycleA.pm
+            CycleB.pm
+            CycleC.pm
+          * CycleA.pm
+
+    The warning tells you which package started the cycle-detection. It then
+    displays the require stack. It adds an asterisk before the module that
+    is cycling. This readout is handy because it lets you trace exactly how
+    the cycle occurs.
+
+SYNOPSYS
+  PACKAGE SCOPE
+        package My::Package;
+        use strict;
+        use warnings;
+
+        use Cycle::Detect;
+        use Something::That::Cycles qw/my_import/;
+
+        # Detection only tirggers on use/require in a package that imported
+        # Cycle::Detect. The code below will not report the cycle.
+        {
+            package My::Other::Package
+            use Another::Cycle;
+        }
+
+        ...
+
+        no Cycle::Detect; # Optional, turns off detection for this package
+
+  SINGLE LOAD
+        package My::Package;
+        use strict;
+        use warnings;
+
+        # Check for cycles when loading (and importing) a module:
+        use Cycle::Detect 'Something::That::Cycles', qw/my_import/;
+        # Cycle detection is not active beyond the previous line.
+
+CAVEATS
+    This module works by overriding "CORE::GLOBAL::require". It tries to be
+    nice about it. If it has already been overriden, all efforts will be
+    taken to wrap around it. However if something else overrides it after
+    this module, and is not nice about wrapping, the detection will stop
+    working.
+
+SEE ALSO
+    circular::require - A discussion about this module is what spawned the
+    idea for Cycle::Detect. Both modules detect cycles, but take radically
+    different approaches. circular::require works like a pragma: "no
+    circular::require" and simply prints the module that is cycled. It is
+    also completely global.
+
+AUTHORS
+    Chad Granum exodist7@gmail.com
+
+COPYRIGHT
+    Copyright (C) 2012 Chad Granum
+
+    Cycle-Detect is free software; Standard perl licence.
+
+    Cycle-Detect is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the license for
+    more details.
+
