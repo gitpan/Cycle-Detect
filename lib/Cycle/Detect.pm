@@ -4,7 +4,7 @@ use warnings;
 
 use Carp qw/croak/;
 
-our $VERSION = "0.001";
+our $VERSION = "0.002";
 
 # {{{ put our interceptor in between the world and require.
 BEGIN {
@@ -185,7 +185,7 @@ Cycle-Detect - (mostly) Non-global use/require cycle detection
 When this module is loaded into a package, Cycle Detection is started. Cycle
 detection will issue a highly readable warnings whenever a use cycle is
 detected. Detection will only trigger warnings when the cycle starts in a
-moduel that has used Cycle::Detect. In addition you can choose to use
+module that has used Cycle::Detect. In addition you can choose to use
 Cycle::Detect to load a module, effectively limiting the detection to the scope
 of that one load.
 

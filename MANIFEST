@@ -1,9 +1,13 @@
 Build.PL
 lib/Cycle/Detect.pm
 MANIFEST			This list of files
+META.json
+META.yml
+README
 t/BaseCycle.t
 t/Global.t
 t/Load.t
+t/LoadFile.t
 t/Nested.t
 t/NoCycle.t
 t/res/BaseCycleA.pm
@@ -19,6 +23,3 @@ t/res/NestedC.pm
 t/res/NoCycleA.pm
 t/res/NoCycleB.pm
 t/res/NoCycleC.pm
-README
-META.yml
-META.json

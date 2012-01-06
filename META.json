@@ -33,7 +33,7 @@
    "provides" : {
       "Cycle::Detect" : {
          "file" : "lib/Cycle/Detect.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
@@ -48,5 +48,5 @@
          "url" : "http://github.com/exodist/Cycle-Detect"
       }
    },
-   "version" : "0.001"
+   "version" : "0.002"
 }

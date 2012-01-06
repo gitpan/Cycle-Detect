@@ -16,11 +16,11 @@ name: Cycle-Detect
 provides:
   Cycle::Detect:
     file: lib/Cycle/Detect.pm
-    version: 0.001
+    version: 0.002
 requires:
   Carp: 0
 resources:
   bugtracker: http://github.com/exodist/Cycle-Detect/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/exodist/Cycle-Detect
-version: 0.001
+version: 0.002

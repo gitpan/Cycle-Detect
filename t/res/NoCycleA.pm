@@ -4,4 +4,6 @@ use warnings;
 
 use NoCycleB;
 
+sub foo { 'foo' };
+
 1;
